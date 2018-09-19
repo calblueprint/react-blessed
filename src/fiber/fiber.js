@@ -37,6 +37,9 @@ const createBlessedRenderer = function(blessed) {
       internalInstanceHandle : Object
     ) {
       const {children, ...appliedProps} = solveClass(props);
+      // Hack to default to a parent before the child is appended,
+      // for blessed widgets that require some parent when constructed.
+      appliedProps.parent = rootContainerInstance;
       const instance = blessed[type](appliedProps);
       instance.props = props;
       instance._eventListener = (...args) => eventListener(instance, ...args);
