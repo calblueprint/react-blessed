@@ -226,7 +226,7 @@ const createBlessedRenderer = function(blessed) {
 
 module.exports = {
   render: function render(element, screen, callback) {
-    const blessed = require('blessed');
+    const blessed = require('@calblueprint/blessed');
     const renderer = createBlessedRenderer(blessed);
     return renderer(element, screen, callback);
   },
